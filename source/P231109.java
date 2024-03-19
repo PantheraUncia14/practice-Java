@@ -20,7 +20,7 @@
  *
  *
  * エラー対策1：整数ではなく、文字列が入力された場合の表示と小数が入力された場合と
- *            あまりにも巨大な整数が入力されてプログラムで取り扱えない整数の場合。
+ *            あまりにも巨大な整数が入力されてプログラムで取り扱えない場合。
  * 有効な整数に変換できませんでした。もう一度入力しなおしてください。
  * 入力する点数は、各教科0～100点までの範囲です。
  *
@@ -95,7 +95,7 @@ public class P231109 {
 
             // ----例外キャッチ----
             } catch (NumberFormatException e) {
-                System.out.println(error1); // 整数以外の入力
+                System.out.println(error1); // 有効な整数以外の入力
             } catch (BufferOverflowException e) {
                 System.out.println(error2); // 指定範囲外の整数
             } catch (Exception e) {
