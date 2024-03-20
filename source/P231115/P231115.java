@@ -27,7 +27,7 @@ public class P231115 {
         int data = 0;
         int num = 0;
         int sum = 0;
-        long sumL = 0;
+        long sumL = 0; // 桁あふれ 再計算用
 
         // ----処理----
         do {
