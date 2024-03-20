@@ -12,6 +12,7 @@
 * ----------------------------------
 */
 
+import java.nio.BufferOverflowException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -26,6 +27,7 @@ public class P231115 {
         int data = 0;
         int num = 0;
         int sum = 0;
+        long sumL = 0;
 
         // ----処理----
         do {
@@ -57,8 +59,21 @@ public class P231115 {
 
         System.out.println(); // 改行
 
-        for(int i : numArray){
-            sum += i;
+        try {
+            for (int i : numArray) {
+                sum += i;
+                if(sum < 0){
+                    throw new BufferOverflowException();
+                }
+            }
+        }catch(BufferOverflowException e){
+            System.out.println("合計値がint型で取り扱える整数の上限を超えました。" );
+            System.out.println("型を変更して再計算します。");
+            for (int i : numArray) {
+                sumL += i;
+            }
+            System.out.printf("%d 個のランダムな整数の合計は %d です。", data, sumL);
+            return;
         }
         // ----結果の出力----
         System.out.printf("%d 個のランダムな整数の合計は %d です。", data, sum);
